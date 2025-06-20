@@ -12,13 +12,6 @@ CREATE TABLE [Categoria] (
   [Estado] BIT DEFAULT 1
 );
 
--- Tabla Deposito
-CREATE TABLE [Deposito] (
-  [IDDeposito] INT IDENTITY(1,1) PRIMARY KEY,
-  [Ubicacion] VARCHAR(200) NOT NULL,
-  [Estado] BIT DEFAULT 1
-);
-
 -- Tabla Usuario
 CREATE TABLE [Usuario] (
   [IDUsuario] INT IDENTITY(1,1) PRIMARY KEY,
@@ -29,18 +22,25 @@ CREATE TABLE [Usuario] (
   [FechaCreacion] DATETIME DEFAULT GETDATE()
 );
 
+-- Tabla Deposito
+CREATE TABLE [Deposito] (
+  [IDDeposito] INT IDENTITY(1,1) PRIMARY KEY,
+  [Ubicacion] VARCHAR(200) NOT NULL,
+  [Estado] BIT DEFAULT 1
+);
+
 -- Tabla Producto
 CREATE TABLE [Producto] (
   [IDProducto] INT IDENTITY(1,1) PRIMARY KEY,
-  [Nombre] VARCHAR(100) NOT NULL,
+  [Nombre] VARCHAR(200) NOT NULL,
   [Codigo] VARCHAR(50) NOT NULL UNIQUE,
   [CantidadStock] INT DEFAULT 0,
   [StockMinimo] INT DEFAULT 0,
   [Descripcion] VARCHAR(500),
   [Ubicacion] VARCHAR(100),
+  [Estado] BIT DEFAULT 1,
   [IDDeposito] INT,
   [IDCategoria] INT,
-  [Estado] BIT DEFAULT 1,
   [FechaCreacion] DATETIME DEFAULT GETDATE(),
   CONSTRAINT [FK_Producto_Deposito]
     FOREIGN KEY ([IDDeposito])

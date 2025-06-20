@@ -1,7 +1,9 @@
 USE GestionDeposito;
 GO
 
--- Insertar categorías
+-- Insertar datos iniciales
+
+-- Categorías
 INSERT INTO [Categoria] ([Nombre_Categoria]) VALUES 
 ('Electrónicos'),
 ('Herramientas'),
@@ -9,18 +11,20 @@ INSERT INTO [Categoria] ([Nombre_Categoria]) VALUES
 ('Limpieza'),
 ('Seguridad');
 
--- Insertar depósitos
+-- Depósitos
 INSERT INTO [Deposito] ([Ubicacion]) VALUES 
 ('Depósito Principal - Sector A'),
 ('Depósito Principal - Sector B'),
 ('Depósito Secundario');
 
--- Insertar usuario administrador por defecto
+-- Usuario administrador por defecto (contraseña: admin123)
 INSERT INTO [Usuario] ([NombreUsuario], [Contraseña], [Rol]) VALUES 
-('admin', '$2b$10$rOzJaHq8GQeWqx8tZqKOHOxK8QxK8QxK8QxK8QxK8QxK8QxK8Qx', 'administrador');
+('admin', '$2b$10$rOzJqQqQqQqQqQqQqQqQqOzJqQqQqQqQqQqQqQqQqQqQqQqQqQqQq', 'administrador'),
+('supervisor1', '$2b$10$rOzJqQqQqQqQqQqQqQqQqOzJqQqQqQqQqQqQqQqQqQqQqQqQqQqQq', 'supervisor'),
+('operario1', '$2b$10$rOzJqQqQqQqQqQqQqQqQqOzJqQqQqQqQqQqQqQqQqQqQqQqQqQqQq', 'operario');
 
--- Insertar productos de ejemplo
+-- Productos de ejemplo
 INSERT INTO [Producto] ([Nombre], [Codigo], [CantidadStock], [StockMinimo], [Descripcion], [Ubicacion], [IDDeposito], [IDCategoria]) VALUES 
-('Laptop Dell', 'ELEC001', 10, 5, 'Laptop Dell Inspiron 15', 'Estante A1', 1, 1),
-('Taladro Bosch', 'HERR001', 5, 2, 'Taladro percutor Bosch', 'Estante B2', 2, 2),
-('Papel A4', 'OFIC001', 100, 20, 'Resma papel A4 75gr', 'Estante C1', 1, 3);
+('Laptop Dell', 'ELEC001', 15, 5, 'Laptop Dell Inspiron 15', 'Estante A1', 1, 1),
+('Taladro Bosch', 'HERR001', 8, 3, 'Taladro percutor Bosch', 'Estante B2', 1, 2),
+('Papel A4', 'OFIC001', 100, 20, 'Resma papel A4 75g', 'Estante C1', 2, 3);
