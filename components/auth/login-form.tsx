@@ -92,7 +92,8 @@ export function LoginForm({ onLogin }: LoginFormProps) {
             </Button>
           </form>
           <div className="mt-4 text-sm text-muted-foreground text-center">
-            <p>Usuarios de prueba:</p>
+            <p>Para poder registrarte debes ponerte en contacto con soporte</p>
+            <p>SBLCode@gmail.com</p>
           </div>
         </CardContent>
       </Card>

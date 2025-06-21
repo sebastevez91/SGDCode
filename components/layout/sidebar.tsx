@@ -18,7 +18,7 @@ export function Sidebar({ userRole, onLogout }: SidebarProps) {
 
   const menuItems = [
     {
-      title: "Dashboard",
+      title: "Tablero principal",
       href: "/dashboard",
       icon: BarChart3,
       roles: ["administrador", "supervisor", "operario"],
@@ -50,7 +50,7 @@ export function Sidebar({ userRole, onLogout }: SidebarProps) {
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
           <Warehouse className="h-6 w-6" />
-          <span>Gestión Depósito</span>
+          <span>Gestión de Depósito</span>
         </Link>
       </div>
       <div className="flex-1">

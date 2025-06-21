@@ -125,6 +125,7 @@ export default function ProductosPage() {
             <Button
               variant="outline"
               size="sm"
+              title="Editar"
               onClick={() => {
                 setEditingProduct(product)
                 setShowProductForm(true)
@@ -132,7 +133,7 @@ export default function ProductosPage() {
             >
               <Edit className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="sm" onClick={() => toggleProductStatus(product)}>
+            <Button variant="outline" size="sm" title="Estado" onClick={() => toggleProductStatus(product)}>
               {product.Estado ? (
                 <ToggleRight className="h-4 w-4 text-green-500" />
               ) : (
