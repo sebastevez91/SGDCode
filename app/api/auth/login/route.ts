@@ -17,6 +17,8 @@ export async function POST(request: NextRequest) {
     }
 
     const user = result.recordset[0]
+    console.log("Contraseña ingresada:", password)
+    console.log("Hash desde la base de datos:", user.Contraseña)
 
     if (!comparePassword(password, user.Contraseña)) {
       return NextResponse.json({ error: "Contraseña incorrecta" }, { status: 401 })

@@ -93,9 +93,6 @@ export function LoginForm({ onLogin }: LoginFormProps) {
           </form>
           <div className="mt-4 text-sm text-muted-foreground text-center">
             <p>Usuarios de prueba:</p>
-            <p>admin / admin123 (Administrador)</p>
-            <p>supervisor1 / admin123 (Supervisor)</p>
-            <p>operario1 / admin123 (Operario)</p>
           </div>
         </CardContent>
       </Card>
