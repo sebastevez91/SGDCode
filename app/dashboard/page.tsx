@@ -13,27 +13,26 @@ interface DashboardStats {
 }
 
 export default function DashboardPage() {
-  const [stats, setStats] = useState<DashboardStats>({
-    totalProductos: 0,
-    productosStockBajo: 0,
-    movimientosHoy: 0,
-    entradasHoy: 0,
-    salidasHoy: 0,
-  })
+  const [stats, setStats] = useState<DashboardStats | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
 
   useEffect(() => {
-    // Simular carga de estadísticas
-    setTimeout(() => {
-      setStats({
-        totalProductos: 156,
-        productosStockBajo: 8,
-        movimientosHoy: 23,
-        entradasHoy: 15,
-        salidasHoy: 8,
-      })
-      setLoading(false)
-    }, 1000)
+    const fetchStats = async () => {
+      try {
+        const res = await fetch("/api/dashboard/stats")
+        if (!res.ok) throw new Error("No se pudieron obtener los datos")
+
+        const data = await res.json()
+        setStats(data)
+      } catch (err: any) {
+        setError(err.message || "Error al cargar las estadísticas")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchStats()
   }, [])
 
   if (loading) {
@@ -46,6 +45,16 @@ export default function DashboardPage() {
       </div>
     )
   }
+
+  if (error) {
+    return (
+      <div className="text-center text-red-500 mt-8">
+        <p>{error}</p>
+      </div>
+    )
+  }
+
+  if (!stats) return null
 
   return (
     <div className="space-y-6">

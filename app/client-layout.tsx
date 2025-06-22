@@ -2,6 +2,7 @@
 
 import type React from "react"
 
+import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -15,6 +16,7 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode
 }) {
+  const router = useRouter()
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -36,6 +38,8 @@ export default function ClientLayout({
     localStorage.setItem("user", JSON.stringify(userData))
     setIsAuthenticated(true)
     setUser(userData)
+
+    router.push("/dashboard") // Redirigi al dashboard
   }
 
   const handleLogout = () => {
