@@ -91,7 +91,14 @@ export function LoginForm({ onLogin }: LoginFormProps) {
               {loading ? "Iniciando sesión..." : "Iniciar Sesión"}
             </Button>
           </form>
-          <div className="mt-4 text-sm text-muted-foreground text-center">
+          <div className="mt-4 text-sm text-muted-foreground text-center space-y-1">
+            <button
+              type="button"
+              onClick={() => alert("Para recuperar la contraseña, contactá al administrador: SBLCode@gmail.com")}
+              className="text-primary underline hover:text-primary/80"
+            >
+              ¿Olvidaste tu contraseña?
+            </button>
             <p>Para poder registrarte debes ponerte en contacto con soporte</p>
             <p>SBLCode@gmail.com</p>
           </div>
